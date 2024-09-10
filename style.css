@@ -12,20 +12,18 @@ header {
     text-align: center;
     position: relative;
 }
-header h1{
-    color:white;
+header h1 {
+    color: white;
 }
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-
 nav ul li {
     display: inline;
     text-decoration: none;
 }
-
 nav ul li a {
     color: white;
     text-decoration: none;
@@ -58,19 +56,23 @@ footer {
     background-color: #f8f9fa;
 }
 
+/* Ensure that the image gallery is flexible and images do not stretch */
 .image-gallery {
     display: flex;
-    justify-content: center;
-    gap: 10px; /* Spacing between images */
     flex-wrap: wrap;
+    gap: 10px; /* Spacing between images */
+    justify-content: center; /* Center align images */
 }
 
 .image-gallery img {
-    width: auto ;
-    height: 200px;
+    width: auto; /* Allow width to adjust according to image's natural aspect ratio */
+    height: auto; /* Allow height to adjust according to image's natural aspect ratio */
+    max-width: 100%; /* Ensure image does not exceed container width */
+    max-height: 200px; /* Limit height to prevent excessively tall images */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 h1, h2 {
     color: #261717;
@@ -91,7 +93,7 @@ h1, h2 {
 
 /* Hover effect for buttons */
 .btn:hover {
-    background-color:  #4d4d4d; /* Darker gray on hover */
+    background-color: #4d4d4d; /* Darker gray on hover */
 }
 
 #navigation {
@@ -101,7 +103,7 @@ h1, h2 {
 }
 
 .container {
-    /* max-width: 800px; */
+    max-width: 100%; /* Ensure the container adapts to the screen width */
     margin: 0 auto;
     background: #fff;
     padding: 20px;
@@ -126,6 +128,7 @@ p {
     margin-top: 30px;
     font-weight: bold;
 }
+
 .page {
     display: none;
 }
@@ -133,13 +136,68 @@ p {
 .page.active {
     display: block;
 }
+
 header img.profile-photo {
-    width: 180px;             /* Set a fixed width */
-    height: 180px;            /* Set a fixed height */
-    border-radius: 50%;       /* Makes the image circular */
-    object-fit: cover;        /* Ensures the image maintains its aspect ratio and covers the container */
-    position: absolute;       /* Positioning the image */
-    top: 20px;                /* Distance from the top */
-    right: 20px;              /* Distance from the right */
-    border: 2px solid white;  /* Optional: white border around the image */
+    width: 180px; /* Fixed width */
+    height: 180px; /* Fixed height */
+    border-radius: 50%; /* Circular image */
+    object-fit: cover; /* Cover the container */
+    position: absolute; /* Positioning the image */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    border: 2px solid white; /* Optional: white border around the image */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block; /* Stack menu items vertically on small screens */
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .btn {
+        font-size: 14px; /* Smaller button text on smaller screens */
+        padding: 5px 12px;
+    }
+
+    .image-gallery img {
+        max-width: 100%; /* Ensure images fit within the container */
+    }
+
+    header img.profile-photo {
+        width: 120px; /* Smaller profile photo */
+        height: 120px;
+        top: 10px; /* Adjust position */
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px; /* Further reduce padding on extra-small screens */
+    }
+
+    .btn {
+        font-size: 12px; /* Even smaller button text */
+        padding: 4px 10px;
+    }
+
+    .container {
+        padding: 5px; /* Minimum padding for very small screens */
+    }
+
+    .image-gallery img {
+        max-width: 100%; /* Ensure images take full width */
+    }
+
+    header img.profile-photo {
+        width: 100px; /* Even smaller profile photo */
+        height: 100px;
+        top: 5px; /* Adjust position */
+        right: 5px;
+    }
 }
